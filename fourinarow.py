@@ -130,7 +130,7 @@ def makeMove(col):
 def checkForWinOrTie(col, row, plays):
 	winner = checkRowWin(row) or checkColWin(col) or checkDiagWin(col, row)
 	if plays == ROWS * COLS:
-		endGame("tie")
+		return "tie"
 	else:
 		if winner:
 			return boardStatus['lastPlayer']
