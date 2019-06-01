@@ -265,9 +265,9 @@ def main():
 				showWhichPlayerTurn()
 				try:
 					(col, row) = getPlayerMove()
+					plays += 1
 				except TypeError:
 					continue
-				plays += 1
 				winner = checkForWinOrTie(col, row, plays)
 				if winner:
 					endGame(winner)
