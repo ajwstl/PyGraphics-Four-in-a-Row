@@ -10,7 +10,7 @@ See file LICENSE for this code's open source license
 """
 
 __author__ = 'Andrew White <andrew@vivalibre.com>'
-__copyright__ = 'Copyright {year}, {project_name}'
+__copyright__ = 'Copyright 2019, PyGraphics-Four-in-a-row'
 __license__ = 'MIT'
 __version__ = '0.1'
 
