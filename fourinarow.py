@@ -21,6 +21,7 @@ try:
 except ImportError:
 	print("This program requires the Python graphics library")
 	print("See https://pypi.org/project/graphics.py/")
+	sys.exit()
 try:
 	import simpleaudio as sa
 	sound = True
