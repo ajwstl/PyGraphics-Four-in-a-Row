@@ -21,6 +21,19 @@ try:
 except ImportError:
 	print("This program requires the Python graphics library")
 	print("See https://pypi.org/project/graphics.py/")
+try:
+	import simpleaudio as sa
+	sound = True
+	intro_obj = sa.WaveObject.from_wave_file("intro.wav")
+	drop_obj = sa.WaveObject.from_wave_file("clickbounce.wav")
+	win_obj = sa.WaveObject.from_wave_file("win.wav")
+	tie_obj = sa.WaveObject.from_wave_file("tie.wav")
+
+
+except ImportError:
+	print("Missing simpleaudio library. To install, see")
+	print("https://simpleaudio.readthedocs.io/en/latest/")
+	sound = False
 
 ROWS = 6
 COLS = 7
@@ -99,7 +112,8 @@ def showMove(player, column, row):
 	c = Circle(center, 40)
 	c.setFill(color)
 	c.draw(win)
-
+	if sound:
+		drop_obj.play()
 
 
 def makeMove(col):
@@ -195,12 +209,16 @@ def endGame(winner):
 		message.setStyle('bold')
 		message.setSize(36)
 		message.draw(win)
+		if sound:
+			win_obj.play()
 	else:
 		message = Text(Point(win.getWidth()/2, 400), "It's a tie!")
 		message.setTextColor('white')
 		message.setStyle('bold')
 		message.setSize(36)
 		message.draw(win)
+		if sound:
+			tie_obj.play()
 	message = Text(Point(win.getWidth()/2, 770), "Click anywhere to start over".format(winner))
 	message.setTextColor('white')
 	message.setStyle('bold')
@@ -242,6 +260,8 @@ def main():
 			drawHoles()
 			boardStatus['lastPlayer'] = 2
 			plays = 0
+			if sound:
+				intro_obj.play()
 			while True:
 				showWhichPlayerTurn()
 				try:
