@@ -129,10 +129,10 @@ def checkRowWin(row):
 		for offset in range(0, 5):
 			if boardStatus[x + offset][row] == lastPlayer:
 				consecutive += 1
+				if consecutive == 4:
+					return True
 			else:
 				consecutive = 0
-		if consecutive == 4:
-			return True
 	return False
 
 
@@ -143,10 +143,10 @@ def checkColWin(col):
 		for offset in range(0, 5):
 			if boardStatus[col][y + offset] == lastPlayer:
 				consecutive += 1
+				if consecutive == 4:
+					return True
 			else:
 				consecutive = 0
-		if consecutive == 4:
-			return True
 	return False
 
 
