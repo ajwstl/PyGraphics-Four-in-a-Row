@@ -237,7 +237,7 @@ def main():
 				boardStatus[column] = {}
 				for row in range(1, ROWS + 1):
 					boardStatus[column][row] = False
-			drawTitle("Dad's Connect 4")
+			drawTitle("Four In A Row")
 			drawBoard()
 			drawHoles()
 			boardStatus['lastPlayer'] = 2
