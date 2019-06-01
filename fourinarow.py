@@ -28,8 +28,6 @@ try:
 	drop_obj = sa.WaveObject.from_wave_file("clickbounce.wav")
 	win_obj = sa.WaveObject.from_wave_file("win.wav")
 	tie_obj = sa.WaveObject.from_wave_file("tie.wav")
-
-
 except ImportError:
 	print("Missing simpleaudio library. To install, see")
 	print("https://simpleaudio.readthedocs.io/en/latest/")
