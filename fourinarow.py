@@ -16,6 +16,12 @@ __version__ = '0.1'
 
 
 import sys
+
+
+datafiles_path="."
+if getattr(sys, 'frozen', False):
+	datafiles_path = sys._MEIPASS
+
 try:
 	from graphics import *
 except ImportError:
@@ -25,14 +31,16 @@ except ImportError:
 try:
 	import simpleaudio as sa
 	sound = True
-	intro_obj = sa.WaveObject.from_wave_file("intro.wav")
-	drop_obj = sa.WaveObject.from_wave_file("clickbounce.wav")
-	win_obj = sa.WaveObject.from_wave_file("win.wav")
-	tie_obj = sa.WaveObject.from_wave_file("tie.wav")
+	intro_obj = sa.WaveObject.from_wave_file(os.path.join(datafiles_path, "intro.wav"))
+	drop_obj = sa.WaveObject.from_wave_file(os.path.join(datafiles_path,"clickbounce.wav"))
+	win_obj = sa.WaveObject.from_wave_file(os.path.join(datafiles_path,"win.wav"))
+	tie_obj = sa.WaveObject.from_wave_file(os.path.join(datafiles_path,"tie.wav"))
 except ImportError:
 	print("Missing simpleaudio library. To install, see")
 	print("https://simpleaudio.readthedocs.io/en/latest/")
 	sound = False
+
+
 
 ROWS = 6
 COLS = 7
